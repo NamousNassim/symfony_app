@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande index{% endblock %}
+
+{% block body %}
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;"> <!-- Container Bootstrap pour centrer le contenu -->
+    <div class="text-center">
+    <h1 class="custom-title" style="color: #c43ddb;">Commande index</h1>
+    <div style="width: 500px; margin: 0 auto; padding:10px"> <!-- Centrage horizontal du formulaire -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numc</th>
+                <th>DateComm</th>
+                <th>observation</th>
+                <th>totht</th>
+                <th>tottva</th>
+                <th>totttc</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.numc }}</td>
+                <td>{{ commande.dateComm ? commande.dateComm|date('Y-m-d') : '' }}</td>
+                <td>{{ commande.observation }}</td>
+                <td>{{ commande.totht }}</td>
+                <td>{{ commande.tottva }}</td>
+                <td>{{ commande.totttc }}</td>
+                <td>
+                    <a href="{{ path('app_commande_show', {'id': commande.id}) }}">show</a>
+                    <a href="{{ path('app_commande_edit', {'id': commande.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_new') }}">Create new</a>
+</div>
+</div>
+    {% endblock %}

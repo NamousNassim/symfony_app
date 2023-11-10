@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livraison index{% endblock %}
+
+{% block body %}
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;"> <!-- Container Bootstrap pour centrer le contenu -->
+    <div class="text-center">
+    <h1>Livraison index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numl</th>
+                <th>Observation</th>
+                <th>Dateliv</th>
+                <th>Totht</th>
+                <th>Tottva</th>
+                <th>Totttc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livraison in livraisons %}
+            <tr>
+                <td>{{ livraison.id }}</td>
+                <td>{{ livraison.numl }}</td>
+                <td>{{ livraison.observation }}</td>
+                <td>{{ livraison.dateliv ? livraison.dateliv|date('Y-m-d') : '' }}</td>
+                <td>{{ livraison.totht }}</td>
+                <td>{{ livraison.tottva }}</td>
+                <td>{{ livraison.totttc }}</td>
+                <td>
+                    <a href="{{ path('app_livraison_show', {'id': livraison.id}) }}">show</a>
+                    <a href="{{ path('app_livraison_edit', {'id': livraison.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_livraison_new') }}">Create new</a>
+</div>
+</div>
+    {% endblock %}

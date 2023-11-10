@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        /* Styles for centering content horizontally */
+        .container-centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .product-card {
+            width: 300px; /* Définissez la largeur minimale souhaitée pour minimiser les produits */
+            margin-left: 180px;
+            text-align: center;
+        }
+
+        /* Styles pour l'effet de zoom */
+        .product-zoom {
+            transition: transform 0.3s; /* Durée de la transition */
+        }
+
+        /* Applique un zoom au survol de la souris */
+        .product-card.product-zoom:hover {
+            transform: scale(1.1); /* Ajustez la valeur pour le niveau de zoom souhaité */
+        }
+    </style>
+    {% endblock %}
+
+{% block body %}
+    <div class="container container-centered">
+        <div class="text-center">
+            <h1 class="mb-4">  </h1>
+
+            <div class="row">
+                {% for produit in produits %}
+                    <div class="col-md-4">
+                        <div class="product-card product-zoom mb-4"> <!-- Ajoutez la classe "product-zoom" ici -->
+                            <img src="{{ asset('./uploads/images/' ~ produit.image) }}" alt="{{ produit.nom }}" class="card-img-top">
+                            <div class="product-body">
+                                <h5 class="product-title">{{ produit.nom }}</h5>
+                                <p class="product-price">{{ produit.prix }} "$"</p>
+                                <a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="btn btn-primary">Détails</a>
+                                <a href="{{ path('app_paiement_index') }}" class="btn btn-primary">Acheter</a>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <p class="text-wight font-weight-bold" style="color: #f7f7f7" >                              
+        _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+     </p>
+    <p class="text-wight font-weight-bold" style="color: #f7f7f7">                              
+        _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+     </p>
+     <p class="text-wight font-weight-bold" style="color: #f7f7f7">                              
+        _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+     </p>
+    <p class="text-wight font-weight-bold" style="color: #f7f7f7" >                              
+        _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+     </p>
+    <p class="text-wight font-weight-bold" style="color: #f7f7f7">                              
+        _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+     </p>
+     <p class="text-wight font-weight-bold" style="color: #f7f7f7">                              
+        _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+     </p>
+     <p class="text-black font-weight-bold">                              
+        _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+     </p>
+    <footer class="text-center">
+        <div class="container footer-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-black font-weight-bold">Informations de contact</h3>
+                    <p class="text-black">Adresse : 123, Gueliz, Marrakech</p>
+                    <p class="text-black">Téléphone : +212 656 789</p>
+                    <p class="text-black">Email : salmafarkhane04@gmail.com</p>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    
+
+    <script>
+        /* Styles pour le pied de page centré */
+        footer.text-center {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        /* Styles pour l'en-tête "Informations de contact" */
+        footer.text-center h3 {
+            font-size: 24px;
+        }
+        
+    </script>
+    
+{% endblock %}

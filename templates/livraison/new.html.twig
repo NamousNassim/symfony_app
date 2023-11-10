@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Livraison{% endblock %}
+
+{% block body %}
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;"> <!-- Container Bootstrap pour centrer le contenu -->
+    <div class="text-center">
+    <h1 class="custom-title" style="color: #c43ddb;">Create new Livraison</h1>
+
+    {{ include('livraison/_form.html.twig') }}
+
+    <a href="{{ path('app_livraison_index') }}">back to list</a>
+    </div>
+</div>
+
+    {% endblock %}

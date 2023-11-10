@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Produit{% endblock %}
+
+{% block body %}
+<div class=class="container d-flex align-items-center justify-content-center" style="width: 300px; margin: 0 auto; padding:70px">
+    <div style="width: 300px; margin: 0 auto; padding:70px">
+    <h3 class="custom-title" style="color: #c43ddb;">Edit Produit</h3>
+    {{ include('produit/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('app_produit_index') }}">back to list</a>
+    
+    {{ include('produit/_delete_form.html.twig') }}
+</div>
+</div>
+    {% endblock %}

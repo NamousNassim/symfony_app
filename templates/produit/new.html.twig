@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Produit{% endblock %}
+
+{% block body %}
+    <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;"> <!-- Container Bootstrap pour centrer le contenu -->
+        <div class="text-center">
+            <h1 class="custom-title" style="color: #c43ddb;">Create new Product</h1>
+
+            <div style="width: 500px; margin: 100px; padding:70px"> <!-- Centrage horizontal du formulaire -->
+                {{ include('produit/_form.html.twig', {'form': form}) }}
+            </div>
+
+            <a href="{{ path('app_produit_index') }}" class="btn btn-secondary" >Back to list</a>
+        </div>
+    </div>
+{% endblock %}

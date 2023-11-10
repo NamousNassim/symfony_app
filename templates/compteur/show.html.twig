@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compteur{% endblock %}
+
+{% block body %}
+    <h1>Compteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Numcom</th>
+                <td>{{ compteur.numcom }}</td>
+            </tr>
+            <tr>
+                <th>Numl</th>
+                <td>{{ compteur.numl }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_compteur_index') }}">back to list</a>
+
+    <a href="{{ path('app_compteur_edit', {'id': compteur.id}) }}">edit</a>
+
+    {{ include('compteur/_delete_form.html.twig') }}
+{% endblock %}
